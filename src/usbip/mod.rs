@@ -40,14 +40,21 @@ impl CmdSubmit {
         let devid = r.read_u32::<BigEndian>()?;
         let direction = r.read_u32::<BigEndian>()?;
         let ep = r.read_u32::<BigEndian>()?;
-        let _transfer_flags = r.read_u32::<BigEndian>()?;  // URB flags; irrelevant for interrupt IN
+        let _transfer_flags = r.read_u32::<BigEndian>()?; // URB flags; irrelevant for interrupt IN
         let transfer_buffer_length = r.read_i32::<BigEndian>()?;
-        let _start_frame = r.read_i32::<BigEndian>()?;     // always 0 for non-isochronous
+        let _start_frame = r.read_i32::<BigEndian>()?; // always 0 for non-isochronous
         let _number_of_packets = r.read_i32::<BigEndian>()?; // always -1 for non-isochronous
-        let _interval = r.read_i32::<BigEndian>()?;         // polling hint; we use our own schedule
+        let _interval = r.read_i32::<BigEndian>()?; // polling hint; we use our own schedule
         let mut setup = [0u8; 8];
         r.read_exact(&mut setup)?;
-        Ok(CmdSubmit { seqnum, devid, direction, ep, transfer_buffer_length, setup })
+        Ok(CmdSubmit {
+            seqnum,
+            devid,
+            direction,
+            ep,
+            transfer_buffer_length,
+            setup,
+        })
     }
 }
 
@@ -58,10 +65,10 @@ pub struct RetSubmit {
     pub direction: u32,
     pub ep: u32,
     pub status: i32,
-    pub actual_length: i32,      // INT32 in protocol
-    pub start_frame: i32,        // INT32 in protocol
-    pub number_of_packets: i32,  // INT32; -1 for non-isochronous
-    pub error_count: i32,        // INT32 in protocol
+    pub actual_length: i32,     // INT32 in protocol
+    pub start_frame: i32,       // INT32 in protocol
+    pub number_of_packets: i32, // INT32; -1 for non-isochronous
+    pub error_count: i32,       // INT32 in protocol
 }
 
 impl RetSubmit {
@@ -100,7 +107,13 @@ impl CmdUnlink {
         let unlink_seqnum = r.read_u32::<BigEndian>()?;
         let mut _pad = [0u8; 24];
         r.read_exact(&mut _pad)?;
-        Ok(CmdUnlink { seqnum, devid, direction, ep, unlink_seqnum })
+        Ok(CmdUnlink {
+            seqnum,
+            devid,
+            direction,
+            ep,
+            unlink_seqnum,
+        })
     }
 }
 

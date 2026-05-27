@@ -19,5 +19,7 @@ async fn main() {
 
     // run_server blocks on the TCP listener; spawn it onto a blocking thread
     // so it doesn't stall the async runtime.
-    tokio::task::spawn_blocking(move || run_server(rx)).await.unwrap();
+    tokio::task::spawn_blocking(move || run_server(rx))
+        .await
+        .unwrap();
 }
