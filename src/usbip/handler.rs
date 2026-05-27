@@ -9,7 +9,8 @@ use crate::hid::{
     REPORT_DESCRIPTOR, STRING_DESCRIPTOR_0, string_descriptor,
 };
 use crate::usbip::{
-    CmdSubmit, CmdUnlink, RetSubmit, RetUnlink, USBIP_CMD_SUBMIT, USBIP_CMD_UNLINK,
+    CmdSubmit, CmdUnlink, RetSubmit, RetUnlink, NUMBER_OF_PACKETS_NON_ISOCH,
+    USBIP_CMD_SUBMIT, USBIP_CMD_UNLINK,
 };
 
 pub fn handle_urb(
@@ -60,11 +61,10 @@ pub fn handle_urb(
                     direction: submit.direction,
                     ep: submit.ep,
                     status,
-                    actual_length: data.len() as u32,
-                    start_frame: submit.start_frame,
-                    number_of_packets: submit.number_of_packets,
+                    actual_length: data.len() as i32,
+                    start_frame: 0,
+                    number_of_packets: NUMBER_OF_PACKETS_NON_ISOCH,
                     error_count: 0,
-                    setup: [0u8; 8],
                 };
 
                 let mut buf: Vec<u8> = Vec::with_capacity(48 + data.len());

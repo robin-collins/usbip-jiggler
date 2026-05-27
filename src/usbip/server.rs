@@ -60,11 +60,15 @@ fn handle_handshake(mut stream: TcpStream, _addr: std::net::SocketAddr) -> Hands
     let mut sent_devlist = false;
     loop {
         // Read common header: version(u16), code(u16), status(u32)
-        let _version = match stream.read_u16::<BigEndian>() {
+        let version = match stream.read_u16::<BigEndian>() {
             Ok(v) => v,
             Err(e) if sent_devlist && is_eof(&e) => return HandshakeResult::DevlistOnly,
             Err(_) => return HandshakeResult::Error,
         };
+        if version != USBIP_VERSION {
+            warn!("rejected handshake: client version {:#06x} != expected {:#06x}", version, USBIP_VERSION);
+            return HandshakeResult::Error;
+        }
         let op_code = match stream.read_u16::<BigEndian>() {
             Ok(v) => v,
             Err(_) => return HandshakeResult::Error,
