@@ -6,9 +6,7 @@ use std::sync::Arc;
 use tokio::sync::mpsc;
 use tracing::{info, warn};
 
-use crate::hid::{
-    mouse::MouseReport, CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR, REPORT_DESCRIPTOR,
-};
+use crate::hid::{mouse::MouseReport, CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR};
 use crate::usbip::{
     handler::handle_urb, BUSID, OP_REP_DEVLIST, OP_REP_IMPORT, OP_REQ_DEVLIST,
     OP_REQ_IMPORT, USBIP_VERSION,
@@ -58,48 +56,59 @@ enum HandshakeResult {
     Error,
 }
 
-fn handle_handshake(mut stream: TcpStream, addr: std::net::SocketAddr) -> HandshakeResult {
-    // Read common header: version(u16), code(u16), status(u32)
-    let _version = match stream.read_u16::<BigEndian>() {
-        Ok(v) => v,
-        Err(_) => return HandshakeResult::Error,
-    };
-    let op_code = match stream.read_u16::<BigEndian>() {
-        Ok(v) => v,
-        Err(_) => return HandshakeResult::Error,
-    };
-    let _status = match stream.read_u32::<BigEndian>() {
-        Ok(v) => v,
-        Err(_) => return HandshakeResult::Error,
-    };
+fn handle_handshake(mut stream: TcpStream, _addr: std::net::SocketAddr) -> HandshakeResult {
+    let mut sent_devlist = false;
+    loop {
+        // Read common header: version(u16), code(u16), status(u32)
+        let _version = match stream.read_u16::<BigEndian>() {
+            Ok(v) => v,
+            Err(e) if sent_devlist && is_eof(&e) => return HandshakeResult::DevlistOnly,
+            Err(_) => return HandshakeResult::Error,
+        };
+        let op_code = match stream.read_u16::<BigEndian>() {
+            Ok(v) => v,
+            Err(_) => return HandshakeResult::Error,
+        };
+        let _status = match stream.read_u32::<BigEndian>() {
+            Ok(v) => v,
+            Err(_) => return HandshakeResult::Error,
+        };
 
-    match op_code {
-        OP_REQ_DEVLIST => {
-            if send_devlist(&mut stream).is_err() {
-                return HandshakeResult::Error;
+        match op_code {
+            OP_REQ_DEVLIST => {
+                if send_devlist(&mut stream).is_err() {
+                    return HandshakeResult::Error;
+                }
+                sent_devlist = true;
+                // loop: client may follow immediately with OP_REQ_IMPORT
             }
-            // Client may immediately follow with OP_REQ_IMPORT in same connection
-            handle_handshake(stream, addr)
+            OP_REQ_IMPORT => {
+                let mut busid = [0u8; 32];
+                if stream.read_exact(&mut busid).is_err() {
+                    return HandshakeResult::Error;
+                }
+                let requested = std::str::from_utf8(&busid)
+                    .unwrap_or("")
+                    .trim_end_matches('\0');
+                if requested != BUSID {
+                    let _ = send_import_error(stream);
+                    return HandshakeResult::Error;
+                }
+                if send_import_ok(&mut stream).is_err() {
+                    return HandshakeResult::Error;
+                }
+                return HandshakeResult::Imported(stream);
+            }
+            _ => return HandshakeResult::Error,
         }
-        OP_REQ_IMPORT => {
-            let mut busid = [0u8; 32];
-            if stream.read_exact(&mut busid).is_err() {
-                return HandshakeResult::Error;
-            }
-            let requested = std::str::from_utf8(&busid)
-                .unwrap_or("")
-                .trim_end_matches('\0');
-            if requested != BUSID {
-                let _ = send_import_error(stream);
-                return HandshakeResult::Error;
-            }
-            if send_import_ok(&mut stream).is_err() {
-                return HandshakeResult::Error;
-            }
-            HandshakeResult::Imported(stream)
-        }
-        _ => HandshakeResult::Error,
     }
+}
+
+fn is_eof(e: &std::io::Error) -> bool {
+    matches!(
+        e.kind(),
+        std::io::ErrorKind::UnexpectedEof | std::io::ErrorKind::ConnectionReset
+    )
 }
 
 fn send_devlist<W: Write>(w: &mut W) -> io::Result<()> {

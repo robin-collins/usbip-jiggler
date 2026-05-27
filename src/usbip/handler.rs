@@ -56,13 +56,13 @@ pub fn handle_urb(
 
                 let ret = RetSubmit {
                     seqnum: submit.seqnum,
-                    devid: 0,
+                    devid: submit.devid,
                     direction: submit.direction,
                     ep: submit.ep,
                     status,
                     actual_length: data.len() as u32,
-                    start_frame: 0,
-                    number_of_packets: 0,
+                    start_frame: submit.start_frame,
+                    number_of_packets: submit.number_of_packets,
                     error_count: 0,
                     setup: [0u8; 8],
                 };
@@ -87,7 +87,14 @@ pub fn handle_urb(
                         break;
                     }
                 };
-                let ret = RetUnlink { seqnum: unlink.seqnum, status: 0 };
+                tracing::debug!("unlink request for submit seqnum {}", unlink.unlink_seqnum);
+                let ret = RetUnlink {
+                    seqnum: unlink.seqnum,
+                    devid: unlink.devid,
+                    direction: unlink.direction,
+                    ep: unlink.ep,
+                    status: 0,
+                };
                 let mut buf: Vec<u8> = Vec::with_capacity(40);
                 if ret.write_to(&mut buf).is_err() || stream.write_all(&buf).is_err() {
                     info!("client disconnected: {}", addr);
