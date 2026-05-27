@@ -14,6 +14,34 @@ A Rust binary that presents a virtual USB HID mouse to a VM via the USB/IP proto
 
 ## Quick Start
 
+### Docker (recommended)
+
+Pull the pre-built image from the GitHub Container Registry and run it:
+
+```bash
+docker run -d --name usbip-jiggler -p 3240:3240 ghcr.io/robin-collins/usbip-jiggler:latest
+```
+
+To follow logs:
+
+```bash
+docker logs -f usbip-jiggler
+```
+
+To stop:
+
+```bash
+docker stop usbip-jiggler && docker rm usbip-jiggler
+```
+
+Available tags:
+
+| Tag | Description |
+|-----|-------------|
+| `latest` | Most recent build from `main` |
+| `sha-<hash>` | Pinned to a specific commit |
+| `v1.2.3` | Pinned to a release version |
+
 ### Binary
 
 ```bash
@@ -23,7 +51,7 @@ cargo build --release
 
 The server listens on `0.0.0.0:3240`.
 
-### Docker
+### Build Docker image locally
 
 ```bash
 docker build -t usbip-jiggler .
