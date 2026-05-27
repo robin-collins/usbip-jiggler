@@ -1,0 +1,66 @@
+name: Bug Report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in as much detail as possible.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `mouse-jiggler --version` or the Docker image tag
+      placeholder: "e.g. 0.1.0 or sha-abc1234"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Host OS
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: guest
+    attributes:
+      label: VM Guest OS
+      options:
+        - Linux
+        - Windows
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `docker run -p 3240:3240 ghcr.io/robin-collins/usbip-jiggler`
+        2. In the VM, run `usbip attach -r <host-ip> -b 1-1`
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste any relevant output from `RUST_LOG=debug mouse-jiggler` or `usbip` client logs.
+      render: text
