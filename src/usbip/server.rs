@@ -1,18 +1,18 @@
 use byteorder::{BigEndian, ReadBytesExt, WriteBytesExt};
 use std::io::{self, Read, Write};
 use std::net::{TcpListener, TcpStream};
-use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::Arc;
+use std::sync::atomic::{AtomicBool, Ordering};
 use tokio::sync::mpsc;
 use tracing::{info, warn};
 
-use crate::hid::{mouse::MouseReport, CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR};
+use crate::hid::{CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR};
 use crate::usbip::{
-    handler::handle_urb, BUSID, OP_REP_DEVLIST, OP_REP_IMPORT, OP_REQ_DEVLIST,
-    OP_REQ_IMPORT, USBIP_VERSION,
+    BUSID, OP_REP_DEVLIST, OP_REP_IMPORT, OP_REQ_DEVLIST, OP_REQ_IMPORT, USBIP_VERSION,
+    handler::handle_urb,
 };
 
-pub fn run_server(mut rx: mpsc::Receiver<MouseReport>) {
+pub fn run_server(mut rx: mpsc::Receiver<[u8; 4]>) {
     let listener = TcpListener::bind("0.0.0.0:3240").expect("bind 0.0.0.0:3240");
     info!("listening on 0.0.0.0:3240");
 
@@ -66,7 +66,10 @@ fn handle_handshake(mut stream: TcpStream, _addr: std::net::SocketAddr) -> Hands
             Err(_) => return HandshakeResult::Error,
         };
         if version != USBIP_VERSION {
-            warn!("rejected handshake: client version {:#06x} != expected {:#06x}", version, USBIP_VERSION);
+            warn!(
+                "rejected handshake: client version {:#06x} != expected {:#06x}",
+                version, USBIP_VERSION
+            );
             return HandshakeResult::Error;
         }
         let op_code = match stream.read_u16::<BigEndian>() {
@@ -150,9 +153,9 @@ fn write_device_info<W: Write>(w: &mut W) -> io::Result<()> {
     w.write_u16::<BigEndian>(pid)?;
     w.write_u16::<BigEndian>(0x0100)?; // bcdDevice
 
-    w.write_u8(DEVICE_DESCRIPTOR[4])?;  // bDeviceClass
-    w.write_u8(DEVICE_DESCRIPTOR[5])?;  // bDeviceSubClass
-    w.write_u8(DEVICE_DESCRIPTOR[6])?;  // bDeviceProtocol
+    w.write_u8(DEVICE_DESCRIPTOR[4])?; // bDeviceClass
+    w.write_u8(DEVICE_DESCRIPTOR[5])?; // bDeviceSubClass
+    w.write_u8(DEVICE_DESCRIPTOR[6])?; // bDeviceProtocol
     w.write_u8(CONFIGURATION_DESCRIPTOR[4])?; // bConfigurationValue
     w.write_u8(DEVICE_DESCRIPTOR[14])?; // bNumConfigurations
     w.write_u8(1)?; // bNumInterfaces

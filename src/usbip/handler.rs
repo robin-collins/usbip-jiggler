@@ -5,18 +5,18 @@ use tokio::sync::mpsc;
 use tracing::{error, info};
 
 use crate::hid::{
-    mouse::MouseReport, CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR,
-    REPORT_DESCRIPTOR, STRING_DESCRIPTOR_0, string_descriptor,
+    CONFIGURATION_DESCRIPTOR, DEVICE_DESCRIPTOR, REPORT_DESCRIPTOR, STRING_DESCRIPTOR_0,
+    mouse::MouseReport, string_descriptor,
 };
 use crate::usbip::{
-    CmdSubmit, CmdUnlink, RetSubmit, RetUnlink, NUMBER_OF_PACKETS_NON_ISOCH,
-    USBIP_CMD_SUBMIT, USBIP_CMD_UNLINK,
+    CmdSubmit, CmdUnlink, NUMBER_OF_PACKETS_NON_ISOCH, RetSubmit, RetUnlink, USBIP_CMD_SUBMIT,
+    USBIP_CMD_UNLINK,
 };
 
 pub fn handle_urb(
     mut stream: TcpStream,
     addr: std::net::SocketAddr,
-    rx: &mut mpsc::Receiver<MouseReport>,
+    rx: &mut mpsc::Receiver<[u8; 4]>,
 ) {
     loop {
         let cmd = match stream.read_u32::<BigEndian>() {
@@ -47,7 +47,9 @@ pub fn handle_urb(
                 }
 
                 let (data, status) = if submit.ep == 1 {
-                    let report = rx.try_recv().unwrap_or([0u8; 3]);
+                    let report = rx
+                        .try_recv()
+                        .unwrap_or_else(|_| MouseReport::zero().to_bytes());
                     (report.to_vec(), 0i32)
                 } else if submit.ep == 0 {
                     handle_control(&submit)
@@ -136,7 +138,10 @@ fn handle_control(submit: &CmdSubmit) -> (Vec<u8>, i32) {
         (0x81, 0x06) => {
             let desc_type = (w_value >> 8) as u8;
             if desc_type == 0x22 {
-                (REPORT_DESCRIPTOR[..REPORT_DESCRIPTOR.len().min(w_length)].to_vec(), 0)
+                (
+                    REPORT_DESCRIPTOR[..REPORT_DESCRIPTOR.len().min(w_length)].to_vec(),
+                    0,
+                )
             } else {
                 (vec![], 0)
             }
