@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "usbip_jiggler",
+  "project_id": "eed0af78-9d71-464d-a127-171462d358f9"
+}
