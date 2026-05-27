@@ -125,11 +125,15 @@ fn send_devlist<W: Write>(w: &mut W) -> io::Result<()> {
     w.write_u32::<BigEndian>(0)?; // status: OK
     w.write_u32::<BigEndian>(1)?; // num_exported_devices
 
-    write_device_info(w)?;
+    write_usb_device(w)?;
+    write_usb_interface(w)?;
     w.flush()
 }
 
-fn write_device_info<W: Write>(w: &mut W) -> io::Result<()> {
+// Writes a `usbip_usb_device` struct (312 bytes). Used by both
+// OP_REP_DEVLIST and OP_REP_IMPORT. OP_REP_IMPORT ends here; OP_REP_DEVLIST
+// is followed by `bNumInterfaces` `usbip_usb_interface` structs.
+fn write_usb_device<W: Write>(w: &mut W) -> io::Result<()> {
     // path (256 bytes)
     let mut path = [0u8; 256];
     let p = b"/sys/devices/pci0000:00/0000:00:01.0/usb1/1-1";
@@ -156,16 +160,19 @@ fn write_device_info<W: Write>(w: &mut W) -> io::Result<()> {
     w.write_u8(DEVICE_DESCRIPTOR[4])?; // bDeviceClass
     w.write_u8(DEVICE_DESCRIPTOR[5])?; // bDeviceSubClass
     w.write_u8(DEVICE_DESCRIPTOR[6])?; // bDeviceProtocol
-    w.write_u8(CONFIGURATION_DESCRIPTOR[4])?; // bConfigurationValue
-    w.write_u8(DEVICE_DESCRIPTOR[14])?; // bNumConfigurations
-    w.write_u8(1)?; // bNumInterfaces
+    w.write_u8(CONFIGURATION_DESCRIPTOR[5])?; // bConfigurationValue (Config[5])
+    w.write_u8(DEVICE_DESCRIPTOR[17])?; // bNumConfigurations (Device[17])
+    w.write_u8(CONFIGURATION_DESCRIPTOR[4])?; // bNumInterfaces (Config[4])
 
-    // Interface info
-    w.write_u8(CONFIGURATION_DESCRIPTOR[11])?; // bInterfaceClass (HID=0x03)
-    w.write_u8(CONFIGURATION_DESCRIPTOR[12])?; // bInterfaceSubClass
-    w.write_u8(CONFIGURATION_DESCRIPTOR[13])?; // bInterfaceProtocol
+    Ok(())
+}
+
+// Writes a `usbip_usb_interface` struct (4 bytes). Only used by OP_REP_DEVLIST.
+fn write_usb_interface<W: Write>(w: &mut W) -> io::Result<()> {
+    w.write_u8(CONFIGURATION_DESCRIPTOR[14])?; // bInterfaceClass (HID=0x03)
+    w.write_u8(CONFIGURATION_DESCRIPTOR[15])?; // bInterfaceSubClass
+    w.write_u8(CONFIGURATION_DESCRIPTOR[16])?; // bInterfaceProtocol
     w.write_u8(0)?; // padding
-
     Ok(())
 }
 
@@ -173,7 +180,7 @@ fn send_import_ok<W: Write>(w: &mut W) -> io::Result<()> {
     w.write_u16::<BigEndian>(USBIP_VERSION)?;
     w.write_u16::<BigEndian>(OP_REP_IMPORT)?;
     w.write_u32::<BigEndian>(0)?; // status: OK
-    write_device_info(w)?;
+    write_usb_device(w)?;
     w.flush()
 }
 
