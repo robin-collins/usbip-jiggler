@@ -1,0 +1,278 @@
+[6]09ac TRACE_LEVEL_VERBOSE `anonymous namespace'::device_file_create:vhci f05ccf88, fobj ea847a68
+[6]09ac TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f0b98728, vhci_plugin_hardware(0X22E000), OutputBufferLength 8, InputBufferLength 1100
+[6]09ac TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1\, once 0x00000000(false)
+[6]09ac TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connecting, subscribers 0
+[6]09ac TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[8]01cc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connected, subscribers 0
+[8]01cc TRACE_LEVEL_ERROR usbip::recv_op_common:code 0x3, ST_NA
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req f0b98728, NTSTATUS=E1020001
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::create_attach_request:ef56d948, 10.10.10.10:3240/1-1\, hash 2914635a
+[8]01cc TRACE_LEVEL_VERBOSE usbip::start_attach_attempts:req ef56d948, delayed for 30 secs.
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req f0b98728, addrinfo c431a590, device_ctx_ext dd4b2938
+[8]01cc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, disconnected, subscribers 0
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1\
+[6]09ac TRACE_LEVEL_VERBOSE `anonymous namespace'::file_cleanup:fobj ea847a68
+[2]1bc4 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_file_create:vhci f05ccf88, fobj ea843558
+[2]1bc4 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f0b98728, vhci_plugin_hardware(0X22E000), OutputBufferLength 8, InputBufferLength 1100
+[2]1bc4 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1\, once 0x00000000(false)
+[2]1bc4 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connecting, subscribers 0
+[2]1bc4 TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[8]01cc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connected, subscribers 0
+[8]01cc TRACE_LEVEL_ERROR usbip::recv_op_common:code 0x3, ST_NA
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req f0b98728, NTSTATUS=E1020001
+[8]01cc TRACE_LEVEL_VERBOSE usbip::stop_attach_attempts:hash 2914635a -> req ef56d948, cancel request was delivered 0x00000000(FALSE)
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::create_attach_request:ef56e2f8, 10.10.10.10:3240/1-1\, hash 2914635a
+[8]01cc TRACE_LEVEL_VERBOSE usbip::start_attach_attempts:req ef56e2f8, delayed for 30 secs.
+[8]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req f0b98728, addrinfo c431b010, device_ctx_ext dd4a1118
+[8]01cc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, disconnected, subscribers 0
+[8]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1\
+[6]1bc4 TRACE_LEVEL_VERBOSE `anonymous namespace'::file_cleanup:fobj ea843558
+[6]2ba4 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_file_create:vhci f05ccf88, fobj ea83dc18
+[6]2ba4 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f0b98728, vhci_plugin_hardware(0X22E000), OutputBufferLength 8, InputBufferLength 1100
+[6]2ba4 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1, once 0x00000000(false)
+[6]2ba4 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connecting, subscribers 0
+[6]2ba4 TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[6]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[6]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connected, subscribers 0
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::log:usbip_usb_device(path '/sys/devices/pci0000:00/0000:00:01.0/usb1/1-1', busid 1-1, busnum 1, devnum 1, USB_SPEED_HIGH,vid 0x46d, pid 0xc077, rev 0x100, class/sub/proto 0/0/0, bConfigurationValue 1, bNumConfigurations 1, bNumInterfaces 1)
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::prepare_init:USB_SPEED_HIGH -> UdecxUsbHighSpeed
+[0]01c8 TRACE_LEVEL_INFORMATION usbip::device::create:dev dde607e8
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::plugin:port 1 claimed
+[0]01c8 TRACE_LEVEL_VERBOSE usbip::device::recv_thread_start:dev dde607e8
+[0]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:dev dde607e8 plugged in, port 1
+[0]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, plugged, subscribers 0
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req f0b98728, STATUS_SUCCESS
+[5]31f0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev dde607e8
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req f0b98728, addrinfo c430aa90, device_ctx_ext 0000
+[11]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_entry:PreviousState WdfPowerDeviceD3
+[1]2ba4 TRACE_LEVEL_VERBOSE `anonymous namespace'::file_cleanup:fobj ea83dc18
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_add:dev dde607e8, endp ea83c8f8{Length 7, Address 0000{Ctrl Out[0]}, Attributes 0, MaxPacketSize 0, Interval 0, Audio{Refresh 0, SynchAddress 0}}, queue ea684738
+	0000  07050000 000000                      .......
+	
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev dde607e8, EndpointsToConfigure[1]
+	0000  F8C883EA F6600000                    .....`..
+	
+[6]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev dde607e8, DeviceInitialize
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::control_transfer:req f02d6da8 -> PipeHandle 1f79ac90, IN|SHORT_OK|DEFAULT_PIPE, TransferBufferLength 64, Timeout 5000, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send:req f02d6da8 -> 48{seqnum 3, devid 0x10001, in[0]}, cmd_submit: flags 0, length 64, start_frame 0, isoc[-1], interval 0, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[6]31f0 TRACE_LEVEL_ERROR `anonymous namespace'::validate_header:USBIP_RET_* expected, got 0x100
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev dde607e8, detaching
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::device::async_detach_and_delete:req e3f894c8, port 1, reattach 0x00000001(true)
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req e8318cb8, vhci_plugout_hardware_and_reattach(0X22E01C), OutputBufferLength 0, InputBufferLength 8
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::plugout_hardware:port 1, reattach 0x00000001(true)
+[6]31f0 TRACE_LEVEL_INFORMATION usbip::device::detach:dev dde607e8, connection closed
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, disconnected, subscribers 0
+[6]31f0 TRACE_LEVEL_INFORMATION usbip::device::detach:port 1 released
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugging, subscribers 0
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_purge:dev dde607e8, endp ea83c8f8, queue ea684738
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:dev dde607e8, seqnum 3
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:Unplugged, do not send unlink
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::complete:seqnum 3, USBD_CANCELED, 0xc0000120(STATUS_CANCELLED), Information 0
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev dde607e8, ReleasedEndpoints[1]
+	0000  F8C883EA F6600000                    .....`..
+	
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev dde607e8, EndpointsReleasedOnly
+[6]31f0 TRACE_LEVEL_VERBOSE ``anonymous namespace'::create_endpoint_queue'::`2'::<lambda_1>::<lambda_invoker_cdecl><void:Queue ea684738 cleanup
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_cleanup:endp ea83c8f8{Address 0: Ctrl Out[0]}, PipeHandle 1f79ac90
+[2]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::device_cleanup:dev dde607e8, cancelable(1) / sent(1) requests
+[2]01cc TRACE_LEVEL_VERBOSE usbip::device::detach:dev dde607e8, already unplugged
+[6]31f0 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugout_and_delete:dev dde607e8, done, force delete 0
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugged, subscribers 0
+[6]31f0 TRACE_LEVEL_INFORMATION `anonymous namespace'::create_attach_request:ef56df18, 10.10.10.10:3240/1-1, hash bfacfd82
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::start_attach_attempts:req ef56df18, delayed for 30 secs.
+[6]31f0 TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1
+[6]31f0 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:STATUS_SUCCESS, Information 0
+[6]31f0 TRACE_LEVEL_VERBOSE `usbip::device::async_detach_and_delete'::`2'::<lambda_1>::<lambda_invoker_cdecl><WDFREQUEST__:req e3f894c8, port 1, STATUS_SUCCESS
+[6]31f0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev dde607e8, exited
+[6]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_exit:TargetState WdfPowerDeviceD3
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send_plugin_hardware:req ef56d948
+[0]0000 TRACE_LEVEL_ERROR `anonymous namespace'::send_plugin_hardware:WdfRequestSend 0xc0000120(STATUS_CANCELLED)
+[14]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::cleanup_attach_request:ef56d948
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send_plugin_hardware:req ef56e2f8
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f02d6da8, vhci_plugin_hardware_once(0X22E018), OutputBufferLength 8, InputBufferLength 1100
+[6]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1\, once 0x00000001(true)
+[6]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connecting, subscribers 0
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[6]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[12]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[12]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[12]0404 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connected, subscribers 0
+[4]0404 TRACE_LEVEL_ERROR usbip::recv_op_common:code 0x3, ST_NA
+[4]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req f02d6da8, NTSTATUS=E1020001
+[4]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::on_plugin_hardware:req ef56e2f8, NTSTATUS=E1020001, retry #1 in 30 secs.
+[4]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req f02d6da8, addrinfo c4321490, device_ctx_ext dd498a18
+[4]0404 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, disconnected, subscribers 0
+[4]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1\
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send_plugin_hardware:req ef56df18
+[10]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f02d6da8, vhci_plugin_hardware_once(0X22E018), OutputBufferLength 8, InputBufferLength 1100
+[10]01cc TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1, once 0x00000001(true)
+[10]01cc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connecting, subscribers 0
+[10]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[2]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[2]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[2]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[2]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[2]01cc TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[10]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[10]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connected, subscribers 0
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::log:usbip_usb_device(path '/sys/devices/pci0000:00/0000:00:01.0/usb1/1-1', busid 1-1, busnum 1, devnum 1, USB_SPEED_HIGH,vid 0x46d, pid 0xc077, rev 0x100, class/sub/proto 0/0/0, bConfigurationValue 1, bNumConfigurations 1, bNumInterfaces 1)
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::prepare_init:USB_SPEED_HIGH -> UdecxUsbHighSpeed
+[10]01c8 TRACE_LEVEL_INFORMATION usbip::device::create:dev f01aa658
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::plugin:port 1 claimed
+[10]01c8 TRACE_LEVEL_VERBOSE usbip::device::recv_thread_start:dev f01aa658
+[10]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:dev f01aa658 plugged in, port 1
+[10]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, plugged, subscribers 0
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req f02d6da8, STATUS_SUCCESS
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::on_plugin_hardware:req ef56df18, STATUS_SUCCESS 
+[7]22fc TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev f01aa658
+[13]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::cleanup_attach_request:ef56df18
+[13]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req f02d6da8, addrinfo c431bc90, device_ctx_ext 0000
+[0]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_entry:PreviousState WdfPowerDeviceD3
+[8]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_add:dev f01aa658, endp ea845208{Length 7, Address 0000{Ctrl Out[0]}, Attributes 0, MaxPacketSize 0, Interval 0, Audio{Refresh 0, SynchAddress 0}}, queue ea4ac738
+	0000  07050000 000000                      .......
+	
+[8]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev f01aa658, EndpointsToConfigure[1]
+	0000  085284EA F6600000                    .R...`..
+	
+[8]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev f01aa658, DeviceInitialize
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::control_transfer:req e8318cb8 -> PipeHandle 22dafcb0, IN|SHORT_OK|DEFAULT_PIPE, TransferBufferLength 64, Timeout 5000, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send:req e8318cb8 -> 48{seqnum 3, devid 0x10001, in[0]}, cmd_submit: flags 0, length 64, start_frame 0, isoc[-1], interval 0, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[7]22fc TRACE_LEVEL_ERROR `anonymous namespace'::validate_header:USBIP_RET_* expected, got 0x100
+[7]22fc TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev f01aa658, detaching
+[7]22fc TRACE_LEVEL_VERBOSE usbip::device::async_detach_and_delete:req e3f88dc8, port 1, reattach 0x00000001(true)
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f0b98728, vhci_plugout_hardware_and_reattach(0X22E01C), OutputBufferLength 0, InputBufferLength 8
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::plugout_hardware:port 1, reattach 0x00000001(true)
+[7]22fc TRACE_LEVEL_INFORMATION usbip::device::detach:dev f01aa658, connection closed
+[7]22fc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, disconnected, subscribers 0
+[7]22fc TRACE_LEVEL_INFORMATION usbip::device::detach:port 1 released
+[7]22fc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugging, subscribers 0
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_purge:dev f01aa658, endp ea845208, queue ea4ac738
+[7]22fc TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:dev f01aa658, seqnum 3
+[7]22fc TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:Unplugged, do not send unlink
+[7]22fc TRACE_LEVEL_VERBOSE usbip::complete:seqnum 3, USBD_CANCELED, 0xc0000120(STATUS_CANCELLED), Information 0
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev f01aa658, ReleasedEndpoints[1]
+	0000  085284EA F6600000                    .R...`..
+	
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev f01aa658, EndpointsReleasedOnly
+[7]22fc TRACE_LEVEL_VERBOSE ``anonymous namespace'::create_endpoint_queue'::`2'::<lambda_1>::<lambda_invoker_cdecl><void:Queue ea4ac738 cleanup
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_cleanup:endp ea845208{Address 0: Ctrl Out[0]}, PipeHandle 22dafcb0
+[4]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::device_cleanup:dev f01aa658, cancelable(1) / sent(1) requests
+[4]0404 TRACE_LEVEL_VERBOSE usbip::device::detach:dev f01aa658, already unplugged
+[7]22fc TRACE_LEVEL_INFORMATION `anonymous namespace'::plugout_and_delete:dev f01aa658, done, force delete 0
+[7]22fc TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugged, subscribers 0
+[7]22fc TRACE_LEVEL_INFORMATION `anonymous namespace'::create_attach_request:ef0de658, 10.10.10.10:3240/1-1, hash bfacfd82
+[7]22fc TRACE_LEVEL_VERBOSE usbip::start_attach_attempts:req ef0de658, delayed for 30 secs.
+[7]22fc TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1
+[7]22fc TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:STATUS_SUCCESS, Information 0
+[7]22fc TRACE_LEVEL_VERBOSE `usbip::device::async_detach_and_delete'::`2'::<lambda_1>::<lambda_invoker_cdecl><WDFREQUEST__:req e3f88dc8, port 1, STATUS_SUCCESS
+[7]22fc TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev f01aa658, exited
+[4]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_exit:TargetState WdfPowerDeviceD3
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send_plugin_hardware:req ef56e2f8
+[8]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req e8318cb8, vhci_plugin_hardware_once(0X22E018), OutputBufferLength 8, InputBufferLength 1100
+[8]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1\, once 0x00000001(true)
+[8]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connecting, subscribers 0
+[8]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[10]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[10]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[10]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, connected, subscribers 0
+[0]01c8 TRACE_LEVEL_ERROR usbip::recv_op_common:code 0x3, ST_NA
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req e8318cb8, NTSTATUS=E1020001
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::on_plugin_hardware:req ef56e2f8, NTSTATUS=E1020001, retry #2 in 45 secs.
+[0]01c8 TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req e8318cb8, addrinfo bdf4f790, device_ctx_ext e018e5d8
+[0]01c8 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1\, port 0, disconnected, subscribers 0
+[0]01c8 TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1\
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send_plugin_hardware:req ef0de658
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req e8318cb8, vhci_plugin_hardware_once(0X22E018), OutputBufferLength 8, InputBufferLength 1100
+[8]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugin_hardware:10.10.10.10:3240/1-1, once 0x00000001(true)
+[8]0404 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connecting, subscribers 0
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::getaddrinfo:0x00000103(STATUS_PENDING)
+[6]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:getaddrinfo STATUS_SUCCESS
+[6]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:10.10.10.10
+[6]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:get keepalive: idle(7200) + cnt(10)*intvl(1) => 7210 sec
+[6]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::set_options:set keepalive: idle(30) + cnt(9)*intvl(10) => 120 sec
+[6]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::connect:0x00000103(STATUS_PENDING)
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:connect STATUS_SUCCESS
+[8]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:10.10.10.10:3240
+[8]0404 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 0, connected, subscribers 0
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::log:usbip_usb_device(path '/sys/devices/pci0000:00/0000:00:01.0/usb1/1-1', busid 1-1, busnum 1, devnum 1, USB_SPEED_HIGH,vid 0x46d, pid 0xc077, rev 0x100, class/sub/proto 0/0/0, bConfigurationValue 1, bNumConfigurations 1, bNumInterfaces 1)
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::prepare_init:USB_SPEED_HIGH -> UdecxUsbHighSpeed
+[8]0404 TRACE_LEVEL_INFORMATION usbip::device::create:dev e8270b68
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::plugin:port 1 claimed
+[8]0404 TRACE_LEVEL_VERBOSE usbip::device::recv_thread_start:dev e8270b68
+[8]0404 TRACE_LEVEL_INFORMATION `anonymous namespace'::connected:dev e8270b68 plugged in, port 1
+[8]0404 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, plugged, subscribers 0
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::complete:req e8318cb8, STATUS_SUCCESS
+[8]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::on_plugin_hardware:req ef0de658, STATUS_SUCCESS 
+[10]06b0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev e8270b68
+[10]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::cleanup_attach_request:ef0de658
+[10]0404 TRACE_LEVEL_VERBOSE `anonymous namespace'::workitem_cleanup:req e8318cb8, addrinfo bdf54d90, device_ctx_ext 0000
+[4]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_entry:PreviousState WdfPowerDeviceD3
+[6]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_add:dev e8270b68, endp eb5fc378{Length 7, Address 0000{Ctrl Out[0]}, Attributes 0, MaxPacketSize 0, Interval 0, Audio{Refresh 0, SynchAddress 0}}, queue ea67bfd8
+	0000  07050000 000000                      .......
+	
+[6]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev e8270b68, EndpointsToConfigure[1]
+	0000  78C35FEB F6600000                    x._..`..
+	
+[6]0408 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev e8270b68, DeviceInitialize
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::control_transfer:req f0b98728 -> PipeHandle 195080e0, IN|SHORT_OK|DEFAULT_PIPE, TransferBufferLength 64, Timeout 5000, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[0]0000 TRACE_LEVEL_VERBOSE `anonymous namespace'::send:req f0b98728 -> 48{seqnum 3, devid 0x10001, in[0]}, cmd_submit: flags 0, length 64, start_frame 0, isoc[-1], interval 0, {IN|STANDARD|DEVICE, GET_DESCRIPTOR(0x6), wValue 0x100, wIndex 0000, wLength 0x40(64)}
+[9]06b0 TRACE_LEVEL_ERROR `anonymous namespace'::validate_header:USBIP_RET_* expected, got 0x100
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev e8270b68, detaching
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::device::async_detach_and_delete:req e3facbc8, port 1, reattach 0x00000001(true)
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:req f02d6da8, vhci_plugout_hardware_and_reattach(0X22E01C), OutputBufferLength 0, InputBufferLength 8
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::plugout_hardware:port 1, reattach 0x00000001(true)
+[9]06b0 TRACE_LEVEL_INFORMATION usbip::device::detach:dev e8270b68, connection closed
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, disconnected, subscribers 0
+[9]06b0 TRACE_LEVEL_INFORMATION usbip::device::detach:port 1 released
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugging, subscribers 0
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_purge:dev e8270b68, endp eb5fc378, queue ea67bfd8
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:dev e8270b68, seqnum 3
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::device::send_cmd_unlink_and_complete:Unplugged, do not send unlink
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::complete:seqnum 3, USBD_CANCELED, 0xc0000120(STATUS_CANCELLED), Information 0
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev e8270b68, ReleasedEndpoints[1]
+	0000  78C35FEB F6600000                    x._..`..
+	
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoints_configure:dev e8270b68, EndpointsReleasedOnly
+[9]06b0 TRACE_LEVEL_VERBOSE ``anonymous namespace'::create_endpoint_queue'::`2'::<lambda_1>::<lambda_invoker_cdecl><void:Queue ea67bfd8 cleanup
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::endpoint_cleanup:endp eb5fc378{Address 0: Ctrl Out[0]}, PipeHandle 195080e0
+[9]06b0 TRACE_LEVEL_INFORMATION `anonymous namespace'::plugout_and_delete:dev e8270b68, done, force delete 0
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::vhci::device_state_changed:10.10.10.10:3240/1-1, port 1, unplugged, subscribers 0
+[9]06b0 TRACE_LEVEL_INFORMATION `anonymous namespace'::create_attach_request:ef0dd8c8, 10.10.10.10:3240/1-1, hash bfacfd82
+[6]0408 TRACE_LEVEL_INFORMATION `anonymous namespace'::device_cleanup:dev e8270b68, cancelable(1) / sent(1) requests
+[6]0408 TRACE_LEVEL_VERBOSE usbip::device::detach:dev e8270b68, already unplugged
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::start_attach_attempts:req ef0dd8c8, delayed for 30 secs.
+[9]06b0 TRACE_LEVEL_INFORMATION `anonymous namespace'::destroy_device_ctx_ext:10.10.10.10:3240/1-1
+[9]06b0 TRACE_LEVEL_VERBOSE `anonymous namespace'::device_control:STATUS_SUCCESS, Information 0
+[9]06b0 TRACE_LEVEL_VERBOSE `usbip::device::async_detach_and_delete'::`2'::<lambda_1>::<lambda_invoker_cdecl><WDFREQUEST__:req e3facbc8, port 1, STATUS_SUCCESS
+[9]06b0 TRACE_LEVEL_VERBOSE usbip::recv_thread_function:dev e8270b68, exited
+[4]0010 TRACE_LEVEL_VERBOSE `anonymous namespace'::vhci_d0_exit:TargetState WdfPowerDeviceD3
